@@ -13,7 +13,7 @@ class UpdateAmount extends VoucherEvent {
   UpdateAmount(this.amount);
 
   @override
-  List<Object?> get props => [this.amount];
+  List<Object?> get props => [amount];
 }
 
 class ChangePaymentMethod extends VoucherEvent {
@@ -22,5 +22,5 @@ class ChangePaymentMethod extends VoucherEvent {
   ChangePaymentMethod(this.method);
 
   @override
-  List<Object?> get props => [this.method];
+  List<Object?> get props => [method];
 }

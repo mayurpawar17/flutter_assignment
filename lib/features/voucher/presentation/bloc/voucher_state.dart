@@ -1,19 +1,56 @@
-import '../../data/voucher_model.dart';
+import 'package:equatable/equatable.dart';
 
-class VoucherState {
-  final VoucherModel? voucher;
+import '../../data/model/voucher_model.dart';
+
+class VoucherState extends Equatable {
+  final bool isLoading;
+  final VoucherModel? voucherModel;
+
   final int selectedAmount;
   final String selectedMethod;
-  final bool isLoading;
 
-  VoucherState({this.voucher, this.selectedAmount = 5000, this.selectedMethod = "UPI", this.isLoading = false});
+  final double finalPrice;
+  final double savings;
 
-  VoucherState copyWith({VoucherModel? v, int? amt, String? method, bool? loading}) {
+  const VoucherState({
+    this.isLoading = false,
+    this.voucherModel,
+    this.selectedAmount = 0,
+    this.selectedMethod = 'UPI',
+
+    this.finalPrice = 0,
+    this.savings = 0,
+  });
+
+  VoucherState copyWith({
+    bool? loading,
+    VoucherModel? voucherModel,
+
+    int? amt,
+    String? method,
+
+    double? finalPrice,
+    double? savings,
+  }) {
     return VoucherState(
-      voucher: v ?? voucher,
+      isLoading: loading ?? isLoading,
+      voucherModel: voucherModel ?? this.voucherModel,
+
       selectedAmount: amt ?? selectedAmount,
       selectedMethod: method ?? selectedMethod,
-      isLoading: loading ?? isLoading,
+
+      finalPrice: finalPrice ?? this.finalPrice,
+      savings: savings ?? this.savings,
     );
   }
+
+  @override
+  List<Object?> get props => [
+    isLoading,
+    voucherModel,
+    selectedAmount,
+    selectedMethod,
+    finalPrice,
+    savings,
+  ];
 }
