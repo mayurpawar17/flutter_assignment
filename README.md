@@ -1,16 +1,6 @@
 # flutter_assignment
 
-A new Flutter project.
+## Voucher Purchase
 
-## Getting Started
+This implementation follows a BLoC-driven reactive flow where data and logic are separated from the UI. The process begins by parsing the mock JSON into a model and emitting an initial state. When the user inputs an amount or selects a payment method, the Bloc updates the state, triggering the UI to recalculate discountAmount, youPay, and savings in real-time. The UI remains synchronized with the API's constraints, automatically disabling the "Pay" button if disablePurchase is true or if the entered amount violates the minAmount and maxAmount limits.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
